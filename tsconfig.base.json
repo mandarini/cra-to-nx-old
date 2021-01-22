@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@katerina/cra-to-nx": ["packages/cra-to-nx/src/index.ts"]
+      "@mandarini/cra-to-nx": ["packages/cra-to-nx/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
