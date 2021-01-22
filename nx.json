@@ -1,14 +1,9 @@
 {
   "npmScope": "cra-to-nx",
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "master" },
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
@@ -25,13 +20,6 @@
       }
     }
   },
-  "projects": {
-    "cra-to-nx": {
-      "tags": []
-    }
-  },
-  "workspaceLayout": {
-    "appsDir": "packages",
-    "libsDir": "packages"
-  }
+  "projects": { "cra-to-nx": { "tags": [] } },
+  "workspaceLayout": { "appsDir": "packages", "libsDir": "packages" }
 }
