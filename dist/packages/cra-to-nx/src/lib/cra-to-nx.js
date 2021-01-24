@@ -82,6 +82,9 @@ function createNxWorkspaceForReact() {
         output.log({ title: 'Final move' });
         process.chdir(`../`);
         child_process_1.execSync('mv temp-workspace/* ./');
+        child_process_1.execSync('mv temp-workspace/{.editorconfig,.env,.eslintrc.json,.gitignore,.prettierignore,prettierrc,.vscode}');
+        child_process_1.execSync('rm -rf temp-workspace');
+        output.log({ title: '🎉 Done!' });
     });
 }
 exports.createNxWorkspaceForReact = createNxWorkspaceForReact;
