@@ -71,7 +71,7 @@ export async function createNxWorkspaceForReact() {
 
   output.log({ title: 'Clearing unused files' });
   execSync(
-    `rm -rf temp-workspace/apps/webapp/* temp-workspace/apps/webapp/{.babelrc,.browserslistrc}`
+    `rm -rf temp-workspace/apps/webapp/* temp-workspace/apps/webapp/{.babelrc,.browserslistrc} node_modules`
   );
   execSync(`git status`);
 
@@ -79,9 +79,7 @@ export async function createNxWorkspaceForReact() {
   execSync(
     `mv ./{README.md,package.json,src,public} temp-workspace/apps/webapp`
   );
-  execSync(`git status`);
-
-  execSync(`cd temp-workspace`);
+  process.chdir(`temp-workspace/`);
 
   output.log({ title: 'Initializing nx scripts' });
 
@@ -111,6 +109,9 @@ export async function createNxWorkspaceForReact() {
   execSync(`echo "SKIP_PREFLIGHT_CHECK=true" > .env`);
   execSync(`echo "node_modules" >> .gitignore`);
 
-  execSync('cd ../');
+  output.log({ title: 'Final move' });
+
+  process.chdir(`../`);
+
   execSync('mv temp-workspace/* ./');
 }

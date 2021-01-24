@@ -53,12 +53,11 @@ function createNxWorkspaceForReact() {
         output.log({ title: '📃 Adding react scripts' });
         child_process_1.execSync(`${isYarn() ? 'yarn add --dev' : 'npm i --save-dev'} react-scripts @testing-library/jest-dom eslint-config-react-app react-app-rewired`);
         output.log({ title: 'Clearing unused files' });
-        child_process_1.execSync(`rm -rf temp-workspace/apps/webapp/* temp-workspace/apps/webapp/{.babelrc,.browserslistrc}`);
+        child_process_1.execSync(`rm -rf temp-workspace/apps/webapp/* temp-workspace/apps/webapp/{.babelrc,.browserslistrc} node_modules`);
         child_process_1.execSync(`git status`);
         output.log({ title: 'Moving react files' });
         child_process_1.execSync(`mv ./{README.md,package.json,src,public} temp-workspace/apps/webapp`);
-        child_process_1.execSync(`git status`);
-        child_process_1.execSync(`cd temp-workspace`);
+        process.chdir(`temp-workspace/`);
         output.log({ title: 'Initializing nx scripts' });
         child_process_1.execSync(`nx g @nrwl/workspace:run-commands serve \
   --project webapp \
@@ -80,7 +79,8 @@ function createNxWorkspaceForReact() {
         output.log({ title: 'Configuring environments' });
         child_process_1.execSync(`echo "SKIP_PREFLIGHT_CHECK=true" > .env`);
         child_process_1.execSync(`echo "node_modules" >> .gitignore`);
-        child_process_1.execSync('cd ../');
+        output.log({ title: 'Final move' });
+        process.chdir(`../`);
         child_process_1.execSync('mv temp-workspace/* ./');
     });
 }
