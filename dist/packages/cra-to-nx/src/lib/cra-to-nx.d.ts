@@ -1,1 +1,2 @@
-export declare function craToNx(): void;
+#!/usr/bin/env node
+export declare function createNxWorkspaceForReact(): Promise<void>;
