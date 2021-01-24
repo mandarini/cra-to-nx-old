@@ -115,7 +115,7 @@ export async function createNxWorkspaceForReact() {
 
   execSync('mv temp-workspace/* ./');
   execSync(
-    'mv temp-workspace/{.editorconfig,.env,.eslintrc.json,.gitignore,.prettierignore,prettierrc,.vscode}'
+    'mv temp-workspace/{.editorconfig,.env,.eslintrc.json,.gitignore,.prettierignore,.prettierrc,.vscode} ./'
   );
   execSync('rm -rf temp-workspace');
 
